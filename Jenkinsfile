@@ -59,17 +59,17 @@ pipeline {
             }
         }
 
-        // stage('Deploy'){
+        stage('Deploy'){
             
-        //     steps{
-        //         script{   // we r passing the params i.e CI to trigger the CD-job
-        //             def params = [
-        //                 string(name: 'appVersion', value: "${appVersion}")  //1.2.0
-        //             ]
-        //             build job: 'frontend-deploy', parameters: params, wait: false //if True, it waits till downstream CD-job completes
-        //         }
-        //     }
-        // }
+            steps{
+                script{   // we r passing the params i.e CI to trigger the CD-job
+                    def params = [
+                        string(name: 'appVersion', value: "${appVersion}")  //1.2.0
+                    ]
+                    build job: 'frontend-deploy', parameters: params, wait: false //if True, it waits till downstream CD-job completes
+                }
+            }
+        }
     }
 
     
